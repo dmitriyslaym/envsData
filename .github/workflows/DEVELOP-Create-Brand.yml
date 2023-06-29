@@ -1,0 +1,25 @@
+name: DEVELOP-Create-Brand
+
+on:
+  workflow_dispatch:
+    inputs:
+      brand_name:
+        required: true
+        type: string
+        description: The name of of the Brand
+      brand_config_url:
+        required: true
+        type: string
+        description: The URL to the configuration of the Brand
+
+jobs:
+  Test_run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log input
+        env:
+          BRAND_NAME: ${{ inputs.brand_name }}
+          BRAND_CONFIG_URL: ${{ inputs.brand_config_url }}
+        run: |
+          echo "brand_name: ${BRAND_NAME}"
+          echo "brand_name: ${BRAND_CONFIG_URL}"
